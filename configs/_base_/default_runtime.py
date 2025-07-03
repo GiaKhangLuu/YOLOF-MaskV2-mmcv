@@ -1,3 +1,5 @@
+default_scope = 'mmdet'
+
 default_hooks = dict(
     timer=dict(type='IterTimerHook'),
     logger=dict(type='LoggerHook', interval=50),
