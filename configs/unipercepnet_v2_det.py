@@ -1,8 +1,15 @@
 _base_ = [
-    './_base_/datasets/coco_detection.py' 
+    './_base_/datasets/coco_detection.py',
     './_base_/schedules/schedule_1x.py', 
-    './_base_/default_runtime.py'
+    './_base_/default_runtime.py',
 ]
+
+import os
+import sys
+
+custom_imports = dict(
+    imports=['src'],
+    allow_failed_imports=False)
 
 model = dict(
     type='UniPercepNetV2',
@@ -14,10 +21,9 @@ model = dict(
         pad_mask=True,
         pad_size_divisor=32),
     backbone=dict(
-        _delete_=True,
         type='RegNet',
         arch='regnetx_4.0gf',
-        out_indices=(0, 1, 2, 3),
+        out_indices=(3,),
         frozen_stages=1,
         norm_cfg=dict(type='BN', requires_grad=True),
         norm_eval=True,
