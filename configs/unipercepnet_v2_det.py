@@ -4,15 +4,8 @@ _base_ = [
     './_base_/default_runtime.py',
 ]
 
-import os
-import sys
-
-custom_imports = dict(
-    imports=['src'],
-    allow_failed_imports=False)
-
 model = dict(
-    type='UniPercepNetV2',
+    type='src.UniPercepNetV2',
     data_preprocessor=dict(
         type='DetDataPreprocessor',
         mean=[103.53, 116.28, 123.675],
@@ -38,7 +31,8 @@ model = dict(
         num_residual_blocks=4,
         block_dilations=[2, 4, 6, 8]),
     bbox_head=dict(
-        type='TOODHead',
+        type='src.TOODHead',
+        #type='TOODHead',
         num_classes=80,
         in_channels=512,
         stacked_convs=6,
@@ -71,11 +65,12 @@ model = dict(
         loss_bbox=dict(type='GIoULoss', loss_weight=2.0)),
     train_cfg=dict(
         initial_epoch=4,
-        initial_assigner=dict(
-            type='UniformAssigner', 
-            match_times=4,
-            pos_ignore_thr=0.15, 
-            neg_ignore_thr=0.7),
+        initial_assigner=dict(type='ATSSAssigner', topk=9),
+        #initial_assigner=dict(
+        #    type='UniformAssigner', 
+        #    match_times=4,
+        #    pos_ignore_thr=0.15, 
+        #    neg_ignore_thr=0.7),
         assigner=dict(type='TaskAlignedAssigner', topk=13),
         alpha=1,
         beta=6,

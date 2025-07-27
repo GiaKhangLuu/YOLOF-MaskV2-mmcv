@@ -1,9 +1,7 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-from mmdet.registry import MODELS
 from mmdet.utils import ConfigType, OptConfigType, OptMultiConfig
 from mmdet.models import SingleStageDetector
 
-@MODELS.register_module()
 class UniPercepNetV2(SingleStageDetector):
     """
     Args:
