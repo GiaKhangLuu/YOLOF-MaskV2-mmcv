@@ -2,7 +2,7 @@
 from mmdet.utils import ConfigType, OptConfigType, OptMultiConfig
 from mmdet.models import SingleStageDetector
 
-class UniPercepNetV2(SingleStageDetector):
+class UniPercepNetV2_Det(SingleStageDetector):
     """
     Args:
         backbone (:obj:`ConfigDict` or dict): The backbone config.

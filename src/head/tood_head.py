@@ -461,6 +461,7 @@ class TOODHead(ATSSHead):
 
         cfg = self.test_cfg if cfg is None else cfg
         nms_pre = cfg.get('nms_pre', -1)
+        score_thr = cfg.get('score_thr', 0)
 
         mlvl_bboxes = []
         mlvl_scores = []
@@ -480,7 +481,7 @@ class TOODHead(ATSSHead):
             # find a slight drop in performance, you can set a larger
             # `nms_pre` than before.
             results = filter_scores_and_topk(
-                scores, cfg.score_thr, nms_pre,
+                scores, score_thr, nms_pre,
                 dict(bbox_pred=bbox_pred, priors=priors))
             scores, labels, keep_idxs, filtered_results = results
 

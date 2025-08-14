@@ -5,7 +5,7 @@ _base_ = [
 ]
 
 model = dict(
-    type='src.UniPercepNetV2',
+    type='src.UniPercepNetV2_Det',
     data_preprocessor=dict(
         type='DetDataPreprocessor',
         mean=[103.53, 116.28, 123.675],
