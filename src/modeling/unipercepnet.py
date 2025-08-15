@@ -11,6 +11,7 @@ from mmdet.structures import SampleList
 from mmdet.utils import ConfigType, OptConfigType, OptMultiConfig
 from mmdet.models import BaseDetector
 
+@MODELS.register_module()
 class UniPercepNetV2(BaseDetector):
     """Base class for two-stage detectors.
 
