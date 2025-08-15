@@ -1,6 +1,6 @@
 _base_ = [
     './_base_/datasets/coco_instance.py',
-    './_base_/schedules/schedule_1x.py', 
+    './_base_/schedules/schedule_2x.py', 
     './_base_/default_runtime.py',
 ]
 
@@ -18,7 +18,7 @@ model = dict(
         arch='regnetx_4.0gf',
         out_indices=(3,),
         frozen_stages=1,
-        norm_cfg=dict(type='BN', requires_grad=False),
+        norm_cfg=dict(type='BN', requires_grad=True),
         norm_eval=True,
         style='pytorch',
         init_cfg=dict(
@@ -126,3 +126,7 @@ model = dict(
             nms=dict(type='nms', iou_threshold=0.5),
             max_per_img=100,
             mask_thr_binary=0.5)))
+
+
+train_dataloader = dict(batch_size=8)
+val_dataloader = dict(batch_size=8)
