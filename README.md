@@ -154,4 +154,19 @@ COCO2017 result
 
 If you find this repository useful for your research, please consider citing the following paper:
 
-```Add later```
+```
+@article{10.1108/DTA-08-2025-0745,
+    author = {Ton, Quang Toai and Lưu, Khang Gia and Vu, Thanh Hien and Le, Tuong and Vu, Thanh Nguyen},
+    title = {UniPercepNet-S: a lightweight dual-task framework with attention mechanisms for real-time object detection and instance segmentation},
+    journal = {Data Technologies and Applications},
+    volume = {60},
+    number = {2},
+    pages = {367-391},
+    year = {2026},
+    month = {03},
+    issn = {2514-9288},
+    doi = {10.1108/DTA-08-2025-0745},
+    url = {https://doi.org/10.1108/DTA-08-2025-0745},
+    eprint = {https://www.emerald.com/dta/article-pdf/60/2/367/11256597/dta-08-2025-0745en.pdf},
+}
+```
